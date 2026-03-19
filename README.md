@@ -12,6 +12,7 @@
  - JDBC URL: jdbc:h2:file:./data/cmsdb
  - User Name: admin
  - Password: 1234
+ 3. 
 
 ## H2 DB 파일 위치
 - DB 파일 경로: `backend/data/cmsdb.mv.db`
@@ -48,7 +49,7 @@
 | create_at  | 가입일시   | timestamp, default current_timestamp |
 | update_at  | 수정일시   | timestamp, default current_timestamp, on update current_timestamp |
 
-## DB 스키마 (DDL 예시)
+## DB 초기 세팅 필요 구문
 ```sql
 CREATE TABLE IF NOT EXISTS users (
     uid BIGINT AUTO_INCREMENT PRIMARY KEY,
