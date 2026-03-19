@@ -12,7 +12,7 @@
  - JDBC URL: jdbc:h2:file:./data/cmsdb
  - User Name: admin
  - Password: 1234
- 3. 
+ 3. DB 초기 세팅 구문 입력 필요
 
 ## H2 DB 파일 위치
 - DB 파일 경로: `backend/data/cmsdb.mv.db`
