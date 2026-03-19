@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: cms
+  
+  # H2 데이터베이스 설정 (In-memory 방식 설정 예시)
+  datasource:
+    url: jdbc:h2:file:./data/cmsdb # 파일 기반 H2 데이터베이스로 변경
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: 1234
+    
+  # JPA 및 하이버네이트 설정
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # 엔티티 변경시 DB 스키마 자동 업데이트 (개발용)
+    show-sql: true # 콘솔에 SQL문 출력
+    properties:
+      hibernate:
+        format_sql: true # SQL문을 보기 좋게 정렬
+
+  # H2 웹 콘솔 활성화 (브라우저에서 DB 확인용)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # 브라우저 접속 경로: http://localhost:8080/h2-console
+
+app:
+  jwt:
+    # 개발용. 운영에서는 환경변수/시크릿으로 관리하세요.
+    secret: "change-me-to-a-long-long-secret-key-at-least-32-bytes!!"
+    expiration-seconds: 3600

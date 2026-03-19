@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS users (
+    uid BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    nickname VARCHAR(50) NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,      -- 가입일시: 자동 입력
+    update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- 수정일시: 자동 입력 및 수정 시 갱신
+);
+
+CREATE TABLE IF NOT EXISTS contents (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    view_count BIGINT NOT NULL DEFAULT 0,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   -- 생성일시: 자동 입력
+    created_by VARCHAR(50) NOT NULL,
+    last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- 수정일시: 자동 입력 및 수정 시 갱신
+    last_modified_by VARCHAR(50)
+);
+
+INSERT INTO users (id, password, nickname, role)
+VALUES
+  ('admin',  '$2a$10$lDKSQKEXy9QXV1I5mnAr1uPQBwSQ94asIoYR7OjdnMMYl9T21OnaC', '관리자', 'ADMIN'),
+  ('user01', '$2a$10$lDKSQKEXy9QXV1I5mnAr1uPQBwSQ94asIoYR7OjdnMMYl9T21OnaC', '유저01', 'USER'),
+  ('user02', '$2a$10$lDKSQKEXy9QXV1I5mnAr1uPQBwSQ94asIoYR7OjdnMMYl9T21OnaC', '유저02', 'USER');
